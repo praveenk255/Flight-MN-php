@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Data Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="manageFlightsButton">Flight Data Management</button>
+
+    <div id="flightManagementSection" style="display: none;">
+        <h2>Manage Flights</h2>
+        <form id="flightForm">
+            <label for="flightNumber">Flight Number:</label>
+            <input type="text" id="flightNumber" name="flightNumber" required>
+
+            <label for="sta">STA:</label>
+            <input type="time" id="sta" name="sta" required>
+
+            <label for="std">STD:</label>
+            <input type="time" id="std" name="std" required>
+
+            <button type="button" id="addFlightButton">Add Flight</button>
+        </form>
+
+        <h3>Upload Excel File</h3>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="excelFile" name="excelFile" accept=".xls,.xlsx" required>
+            <button type="submit" id="uploadButton">Upload</button>
+        </form>
+
+        <h3>Flight Database</h3>
+        <table id="flightTable">
+            <thead>
+                <tr>
+                    <th>Flight Number</th>
+                    <th>STA</th>
+                    <th>STD</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Content -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="mainPage">
+        <h2>Flight Details</h2>
+        <form id="flightDetailsForm">
+            <label for="flightPicker">Flight Number:</label>
+            <select id="flightPicker" name="flightPicker" required></select>
+
+            <label for="staDetails">STA:</label>
+            <input type="text" id="staDetails" disabled>
+
+            <label for="stdDetails">STD:</label>
+            <input type="text" id="stdDetails" disabled>
+
+            <label for="ata">ATA:</label>
+            <input type="time" id="ata" name="ata" required>
+
+            <label for="fpb">FPB:</label>
+            <input type="time" id="fpb" name="fpb" required>
+
+            <label for="lpb">LPB:</label>
+            <input type="time" id="lpb" name="lpb" required>
+
+            <label for="dc">DC:</label>
+            <input type="time" id="dc" name="dc" required>
+
+            <label for="atd">ATD:</label>
+            <input type="time" id="atd" name="atd" required>
+
+            <label for="dcStatus">DC Status:</label>
+            <select id="dcStatus" name="dcStatus">
+                <option value="achieved">Achieved</option>
+                <option value="delay">Delay due to holds not closed</option>
+                <option value="congestion">Cabin congestion</option>
+            </select>
+
+            <label for="arrivalWheelchairs">Arrival Wheelchairs:</label>
+            <select id="arrivalWheelchairs" name="arrivalWheelchairs">
+                <option value="N/A">N/A</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <!-- Up to 10 -->
+            </select>
+
+            <label for="departureWheelchairs">Departure Wheelchairs:</label>
+            <select id="departureWheelchairs" name="departureWheelchairs">
+                <option value="N/A">N/A</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <!-- Up to 10 -->
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="resultSection">
+            <h3>Results</h3>
+            <p id="results"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
